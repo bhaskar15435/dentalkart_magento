@@ -25,6 +25,18 @@ class Test extends \Magento\Framework\App\Action\Action
 		$date= $this->date->gmtDate();
     $customer=$this->customerFactory->create();
     $dob=$customer->getDob();
+    $name=$customer->getCustomerName();
+
+    $customer_day=date("d",$dob);
+    $customer_month=date("m",$dob);
+
+    $today_day=date("d",$date);
+    $today_month=date("m",$date);
+
+    if( ($customer_month==$today_month) &&($customer_day==$today_day))
+    {
+       echo "Happy birthday to you"." ". $name." "." from dentalkart";
+    }
 
 
 	}
